@@ -1,0 +1,7 @@
+[colors]
+	ah = ["#88d4ea", "#84acba", "#6792ab", "#9eb9bb", "#5e937d"]
+	aw = ["#b58fc5", "#8787de", "#afd0fc", "#ea9ff2", "#8e9fcb"]
+
+[dice]
+	viewangle = 30
+	basesize = 10

@@ -2,16 +2,22 @@
 import svgwrite
 import spectra
 
+import toml
 import math
 import random
 import numpy as np
 
 import itertools
 
-angle = 30
-BASESIZE = 10
-colors_andi = ["#88d4ea", "#84acba", "#6792ab", "#9eb9bb", "#5e937d"] #, "#5e937d"
-colors_andrea = ["#b58fc5", "#8787de", "#afd0fc", "#ea9ff2", "#8e9fcb"] #"#8787de", "#a0a0ec"
+def readParams(filename):
+	with open(filename) as f:
+		return toml.loads(f.read())
+
+params = readParams("../params.toml")
+angle = params["dice"]["viewangle"]
+BASESIZE = params["dice"]["basesize"]
+colors_andi = params["colors"]["ah"] #, "#5e937d"
+colors_andrea = params["colors"]["aw"] #"#8787de", "#a0a0ec"
 # colors_andrea = ["#a87395", "#ff8de1", "#6969bb"] #"#90bcb8", "#8d5fd3"
 allColors = colors_andi + colors_andrea
 
