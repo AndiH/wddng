@@ -18,10 +18,10 @@ overview_document = svgwrite.Drawing(filename="color-overview.svg", size=(str(wi
 # overview_document.add(overview_document.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(50,50,50)'))
 
 for (i, c) in enumerate(allColors):
-	print(c)
-	dice = createDiceOneColor(overview_document, basesize, angle, c)
-	dice.translate(tx = i * 2 * basesize, ty = 0.6 * basesize)
-	overview_document.add(dice)
-	overview_document.add(overview_document.text(c, insert = (basesize / 3.5 + i * 2 * basesize, basesize), style="font-size: {}; font-family: PT Sans; font-weight: bolder".format(basesize / 2.5)))
+    print(c)
+    dice = createDiceOneColor(overview_document, basesize, angle, c)
+    dice.translate(tx=i * 2 * basesize, ty=0.6 * basesize)
+    overview_document.add(dice)
+    overview_document.add(overview_document.text(c, insert=(basesize / 3.5 + i * 2 * basesize, basesize), style="font-size: {}; font-family: PT Sans; font-weight: bolder".format(basesize / 2.5)))
 
 overview_document.save()
