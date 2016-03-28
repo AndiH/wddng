@@ -51,7 +51,7 @@ svg_document = svgwrite.Drawing(filename = "test-svgwrite.svg",
                                 size = ("1200px", "1000px"))
 
 rowofdice = svg_document.g()
-for (i, j) in itertools.product(xrange(0,20), xrange(0,20)):
+for (i, j) in itertools.product(range(20), range(20)):
 	randomnumber = np.random.triangular(0,0,20)
 	colors = colors_andrea
 	if (i <= randomnumber):
@@ -81,7 +81,7 @@ svg_document.save()
 
 overview_document = svgwrite.Drawing(filename = "color-overview.svg", size = ("500px", "200px"))
 for (i, c) in enumerate(allColors):
-	print c
+	print(c)
 	dice = createDiceOneColor(overview_document, c)
 	dice.translate(tx = i * 2 * BASESIZE, ty = BASESIZE)
 	overview_document.add(dice)
