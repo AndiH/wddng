@@ -22,7 +22,7 @@ nDicePerRow = 20
 
 documentWidth = nDicePerRow * 2 * basesize
 documentHeight = nDicePerRow * 1.6 * basesize
-svg_document = svgwrite.Drawing(filename="test-svgwrite.svg", size=(str(documentWidth) + "px", str(documentHeight) + "px"))
+svg_document = svgwrite.Drawing(filename="drawing.svg", size=(str(documentWidth) + "px", str(documentHeight) + "px"))
 svg_document.add(svg_document.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(50,50,50)'))
 
 rowofdice = svg_document.g()
@@ -47,7 +47,9 @@ svg_document.add(rowofdice)
 # svg_document.add(rowofdice2)
 # svg_document.add(rowofdice3)
 
-svg_document.add(svg_document.text("Hello World", insert=(210, 110)))
+helloWorld = svg_document.text("Hello World", insert=("50%", "50%"), style="font-size: {}px; font-family: PT Sans; font-weight: bolder;".format(basesize * 3), fill="white")
+helloWorld['text-anchor'] = "middle"
+svg_document.add(helloWorld)
 
 # print(svg_document.tostring())
 
