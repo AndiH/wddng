@@ -20,7 +20,10 @@ allColors = colors_andi + colors_andrea
 
 nDicePerRow = 20
 
-svg_document = svgwrite.Drawing(filename="test-svgwrite.svg", size=("1200px", "1000px"))
+documentWidth = nDicePerRow * 2 * basesize
+documentHeight = nDicePerRow * 1.6 * basesize
+svg_document = svgwrite.Drawing(filename="test-svgwrite.svg", size=(str(documentWidth) + "px", str(documentHeight) + "px"))
+svg_document.add(svg_document.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(50,50,50)'))
 
 rowofdice = svg_document.g()
 for (i, j) in itertools.product(range(nDicePerRow), range(nDicePerRow)):
