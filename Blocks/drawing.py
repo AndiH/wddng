@@ -31,9 +31,13 @@ for c in allColors:
     dice['id'] = c[1:]
     svg_document.defs.add(dice)
 
+# CLIP PATH
+squareClip = svg_document.defs.add(svg_document.clipPath(id='squareClip'))
+squareClip.add(svg_document.rect((0, 0), ("100%", "100%")))
+
 # GENERATE DICES (as references)
-allDices = svg_document.g(id="allthedices")
-for (i, j) in itertools.product(range(nDicePerRow), range(nDicePerRow)):
+allDices = svg_document.g(id="allthedices",  clip_path='url(#squareClip)')
+for (i, j) in itertools.product(range(nDicePerRow + 1), range(nDicePerRow + 1)):
     randomnumber = np.random.triangular(0, 0, nDicePerRow)
     colors = colors_andrea
     if (i <= randomnumber):
