@@ -47,8 +47,8 @@ for (i, j) in itertools.product(range(nDicePerRow), range(nDicePerRow)):
 svg_document.add(allDices)
 
 
-helloWorld = svg_document.text("Hello World", insert=("50%", "50%"), style="font-size: {}px; font-family: PT Sans; font-weight: bolder;".format(basesize * 3), fill="white")
-helloWorld['text-anchor'] = "middle"
+helloWorld = svg_document.text("Hello World", insert=("50%", "50%"), style="font-size: {}px; font-family: PT Sans; font-weight: bolder;".format(basesize * 3), fill="white", text_anchor='middle')
+# helloWorld['text-anchor'] = "middle"
 svg_document.add(helloWorld)
 
 # print(svg_document.tostring())
