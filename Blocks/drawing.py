@@ -28,7 +28,7 @@ svg_document.add(svg_document.rect(insert=(0, 0), size=('100%', '100%'), rx=None
 # GENERATE BASE DICES
 for c in allColors:
     dice = createDiceOneColor(svg_document, basesize, angle, c)
-    dice['id'] = c[1:]
+    dice['id'] = c[0][1:]
     svg_document.defs.add(dice)
 
 # CLIP PATH
@@ -44,7 +44,7 @@ for (i, j) in itertools.product(range(nDicePerRow + 1), range(nDicePerRow + 1)):
         colors = colors_andi
     random.shuffle(colors)
     offset = -basesize if (j % 2 == 1) else 0
-    dice = svg_document.use(svg_document.g(id=colors[0][1:]))
+    dice = svg_document.use(svg_document.g(id=colors[0][0][1:]))
     dice.translate(tx=offset + i * 2 * basesize, ty=j * basesize * (1 + math.tan(math.radians(angle))))
     allDices.add(dice)
 

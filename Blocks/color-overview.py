@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import svgwrite
 
-from dice import createDiceOneColor
+from dice import createDiceOneColor, createDiceOneColorHsl
 from helpers import readParams
 
 
