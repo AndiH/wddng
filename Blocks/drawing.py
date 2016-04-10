@@ -23,7 +23,7 @@ nDicePerRow = 20
 documentWidth = nDicePerRow * 2 * basesize
 documentHeight = nDicePerRow * 1.6 * basesize
 svg_document = svgwrite.Drawing(filename="drawing.svg", size=(str(documentWidth) + "px", str(documentHeight) + "px"))
-svg_document.add(svg_document.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(50,50,50)'))
+# svg_document.add(svg_document.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(50,50,50)'))
 
 # GENERATE BASE DICES
 for c in allColors:
@@ -50,10 +50,21 @@ for (i, j) in itertools.product(range(nDicePerRow + 1), range(nDicePerRow + 1)):
 
 svg_document.add(allDices)
 
+rect = svg_document.rect(insert=(0, 0), size=('100%', '100%'), rx=None, ry=None, fill='rgb(255,255,255)', opacity="0.2", id="whitener")
+svg_document.add(rect)
+# helloWorld = svg_document.text("Hello World", insert=("50%", "50%"), style="font-size: {}px; font-family: PT Sans; font-weight: bolder;".format(basesize * 3), fill="white", text_anchor='middle')
+# # helloWorld['text-anchor'] = "middle"
+# svg_document.add(helloWorld)
 
-helloWorld = svg_document.text("Hello World", insert=("50%", "50%"), style="font-size: {}px; font-family: PT Sans; font-weight: bolder;".format(basesize * 3), fill="white", text_anchor='middle')
-# helloWorld['text-anchor'] = "middle"
-svg_document.add(helloWorld)
+# ADD MONOGRAM
+firstAcolor = random.choice(params["monogram"]["Aone_colors"])
+secondAcolor = random.choice(params["monogram"]["Atwo_colors"])
+firstA = svgwrite.path.Path(params["monogram"]["Aone"], fill=firstAcolor, stroke="none")
+secondA = svgwrite.path.Path(params["monogram"]["Atwo"], fill=secondAcolor, stroke="none")
+monogram = svg_document.g(id="monogram", transform="translate(-20,-60)")
+monogram.add(firstA)
+monogram.add(secondA)
+svg_document.add(monogram)
 
 # print(svg_document.tostring())
 
