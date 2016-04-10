@@ -1,6 +1,7 @@
 [colors]
-	ah = [["#88d4ea", "#a8e0f0", "#bae6f3"], ["#84acba"], ["#6792ab"], ["#9eb9bb"], ["#5e937d"]]
-	aw = [["#b58fc5"], ["#8787de"], ["#afd0fc", "#bfdafd", "#cee2fd"], ["#ea9ff2"], ["#8e9fcb"]]
+	# ah = [["#88d4ea", "#a8e0f0", "#bae6f3"], ["#84acba"], ["#6792ab"], ["#9eb9bb"], ["#5e937d"]]
+	ah = [["#80bfff", "#99ccff", "#b3d9ff"], ["#5799d7"], ["#6792ab"], ["#9eb9bb"], ["#5e937d"]]
+	aw = [["#b482c9"], ["#8787de"], ["#a6cbfc", "#bfdafd", "#cee2fd"], ["#dfafe4"], ["#8e9fcb"]]
 [colors_hsl]
 	ah = [[
 			[193.4694, 0.7, 0.7255],
