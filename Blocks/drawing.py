@@ -78,6 +78,20 @@ monogram.add(firstA)
 monogram.add(secondA)
 svg_document.add(monogram)
 
-# print(svg_document.tostring())
+# ADD FOLD LINES
+foldlines = svg_document.g(id="foldlines")
+foldlines_left = svg_document.g(id="foldlines-left")
+leftfoldtop = svgwrite.shapes.Line(start=("{}{}".format(documentWidth[0]/4, documentWidth[1]), "0mm"), end=("{}{}".format(documentWidth[0]/4, documentWidth[1]), "2mm"))
+leftfoldbottom = svgwrite.shapes.Line(start=("{}{}".format(documentWidth[0]/4, documentWidth[1]), "{}{}".format(documentHeight[0]-2, documentHeight[1])), end=("{}{}".format(documentWidth[0]/4, documentWidth[1]), "{}{}".format(documentHeight[0], documentHeight[1])))
+foldlines_left.add(leftfoldtop)
+foldlines_left.add(leftfoldbottom)
+foldlines.add(foldlines_left)
+foldlines_right = foldlines_left.copy()
+foldlines_right["id"] = "foldlines-right"
+foldlines_right.translate(tx=mmtopx(documentWidth[0]/2))
+foldlines.add(foldlines_right)
+foldlines.stroke("black", width=1)
+svg_document.add(foldlines)
+
 
 svg_document.save()
